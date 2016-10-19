@@ -47,48 +47,6 @@ define('BRANCH', 'master');
 define('TARGET_DIR', '/tmp/simple-php-git-deploy/');
 
 /**
- * Whether to delete the files that are not in the repository but are on the
- * local (server) machine.
- *
- * !!! WARNING !!! This can lead to a serious loss of data if you're not
- * careful. All files that are not in the repository are going to be deleted,
- * except the ones defined in EXCLUDE section.
- * BE CAREFUL!
- *
- * @var boolean
- */
-define('DELETE_FILES', false);
-
-/**
- * The directories and files that are to be excluded when updating the code.
- * Normally, these are the directories containing files that are not part of
- * code base, for example user uploads or server-specific configuration files.
- * Use rsync exclude pattern syntax for each element.
- *
- * @var serialized array of strings
- */
-define('EXCLUDE', serialize(array(
-	'.git',
-)));
-
-/**
- * Temporary directory we'll use to stage the code before the update. If it
- * already exists, script assumes that it contains an already cloned copy of the
- * repository with the correct remote origin and only fetches changes instead of
- * cloning the entire thing.
- *
- * @var string Full path including the trailing slash
- */
-define('TMP_DIR', '/tmp/spgd-'.md5(REMOTE_REPOSITORY).'/');
-
-/**
- * Whether to remove the TMP_DIR after the deployment.
- * It's useful NOT to clean up in order to only fetch changes on the next
- * deployment.
- */
-define('CLEAN_UP', true);
-
-/**
  * Output the version of the deployed code.
  *
  * @var string Full path to the file name
