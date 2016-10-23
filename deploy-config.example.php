@@ -51,7 +51,7 @@ define('TARGET_DIR', '/tmp/simple-php-git-deploy/');
  *
  * @var string Full path to the file name
  */
-define('VERSION_FILE', TMP_DIR.'VERSION');
+define('VERSION_FILE', TARGET_DIR.'VERSION');
 
 /**
  * Time limit for each command.
